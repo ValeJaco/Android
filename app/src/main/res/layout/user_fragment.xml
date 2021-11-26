@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="user"
+            type="com.example.dummybase.data.model.User" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/tankCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:strokeWidth="0dp"
+        android:padding="12dp"
+        app:cardCornerRadius="4dp"
+        app:cardBackgroundColor="@color/cardview_dark_background"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:id="@+id/linearLayout0"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+               <TextView
+                    android:id="@+id/lastConnectionDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:text="@{String.valueOf(user.id)}"
+                    android:textSize="20sp"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textColor="?colorOnSecondary"
+                    tools:text="prénom" />
+
+                <TextView
+                    android:id="@+id/isActive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:text="@{String.valueOf(user.isActive)}"
+                    android:textSize="20sp"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textColor="?colorOnSecondary"
+                    tools:text="nom" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/userForename"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:text="@{user.forename}"
+                    android:textSize="20sp"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textColor="?colorOnSecondary"
+                    tools:text="Last co" />
+
+                <TextView
+                    android:id="@+id/userLastname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:text="@{user.lastname}"
+                    android:textSize="20sp"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textColor="?colorOnSecondary"
+                    tools:text="active" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
