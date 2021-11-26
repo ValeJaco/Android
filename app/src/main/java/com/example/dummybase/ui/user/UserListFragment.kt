@@ -33,7 +33,6 @@ class UserListFragment : Fragment(R.layout.user_list_fragment), LifecycleObserve
 
             lifecycleOwner = viewLifecycleOwner
             vm = viewModel
-
             userList.adapter = UserListRecyclerAdapter()
 
             swiperefresh.setColorSchemeResources(R.color.design_default_color_error)
