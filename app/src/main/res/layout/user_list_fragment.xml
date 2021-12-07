@@ -8,18 +8,56 @@
         <variable
             name="vm"
             type="com.example.dummybase.ui.user.UserListViewModel" />
+
+        <variable
+            name="snackBarView"
+            type="android.view.View" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/lastConnectionDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:text="@{vm.userLiveData.forename}"
+            android:textSize="20sp"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            tools:text="prénom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/lastConnectionDate2"
+            android:paddingLeft="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:text="@{vm.userLiveData.lastname}"
+            android:textSize="20sp"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            tools:text="prénom"
+            app:layout_constraintStart_toEndOf="@+id/lastConnectionDate"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swiperefresh"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/lastConnectionDate">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/userList"
@@ -31,7 +69,8 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/user_fragment" />
+                tools:listitem="@layout/user_fragment"
+                />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

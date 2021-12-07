@@ -1,7 +1,7 @@
 package com.example.dummybase.di
 
 import com.example.dummybase.api.ApiClient
-import com.example.dummybase.data.UserDao
+import com.example.dummybase.data.persistence.UsersDao
 import com.example.dummybase.data.repository.UserRepository
 import dagger.Module
 import dagger.Provides
@@ -17,7 +17,7 @@ object RepositoryModule {
     @ActivityRetainedScoped
     fun provideMainRepository(
         apiClient: ApiClient,
-        userDao: UserDao
-    ): UserRepository = UserRepository(apiClient, userDao)
+        usersDao: UsersDao
+    ): UserRepository = UserRepository(apiClient, usersDao)
 
 }

@@ -24,7 +24,7 @@ class DummyBaseApp : Application() {
         super.onCreate()
         appContext = applicationContext
 
-        // initFlipper()
+        initFlipper()
     }
 
     private fun initFlipper() {

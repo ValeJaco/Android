@@ -10,19 +10,18 @@ class ListConverters {
 
     val moshi = ApiModule.moshi
 
-    /** Pokemons */
-    @TypeConverter
-    fun fromPokemonsString(value: String?): List<User>? = value?.let {
+    /*@TypeConverter
+    fun fromUserString(value: String?): List<User>? = value?.let {
         val listType = Types.newParameterizedType(List::class.java, User::class.java)
         val adapter: JsonAdapter<List<User>> = moshi.adapter(listType)
         adapter.fromJson(it)
     }
 
     @TypeConverter
-    fun fromPokemons(list: List<User>?): String? = list?.let {
+    fun fromUsers(list: List<User>?): String? = list?.let {
         val listType = Types.newParameterizedType(List::class.java, User::class.java)
         val adapter: JsonAdapter<List<User>> = moshi.adapter(listType)
         adapter.toJson(it)
-    }
+    }*/
 
 }

@@ -12,12 +12,12 @@ import java.util.*
 @Parcelize
 @JsonClass(generateAdapter = true)
 class User(
-    @field:Json(name = "idCompte") @PrimaryKey var id: Int,
-    @field:Json(name = "prenom") val forename: String,
-    @field:Json(name = "nom") val lastname: String,
+    @field:Json(name = "id") @PrimaryKey var id: Int,
+    @field:Json(name = "name") val forename: String,
+    @field:Json(name = "codePostal") val lastname: String?,
     @field:Json(name = "email") val email: String,
     //@field:Json(name = "dateDerniereConnexion") val lastConnectionDate: Date,
-    @field:Json(name = "isActive") val isActive: String,
-    @field:Json(name = "isCoach") val isCoach: String,
+    @field:Json(name = "isActive") val isActive: Boolean,
+    @field:Json(name = "isCoach") val isCoach: Boolean,
 ) : Parcelable {
 }

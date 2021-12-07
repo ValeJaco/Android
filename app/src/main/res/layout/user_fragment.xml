@@ -5,10 +5,15 @@
 
     <data>
         <variable
+            name="vm"
+            type="com.example.dummybase.ui.user.UserListViewModel" />
+
+        <variable
             name="user"
             type="com.example.dummybase.data.model.User" />
     </data>
 
+    <!-- android:onClick="@{() -> vm.loadUserDetail(user.id)}" -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/tankCard"
         android:layout_width="match_parent"
@@ -16,9 +21,13 @@
         android:layout_gravity="center"
         app:strokeWidth="0dp"
         android:padding="12dp"
+        android:onClick="@{() -> vm.showSnackBar()}"
         app:cardCornerRadius="4dp"
         app:cardBackgroundColor="@color/cardview_dark_background"
-        app:cardUseCompatPadding="true">
+        app:cardUseCompatPadding="true"
+        android:checkable="true"
+        android:checked="true">
+
 
         <LinearLayout
             android:id="@+id/linearLayout0"

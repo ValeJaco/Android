@@ -4,17 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.MainActivity">
+    tools:context=".ui.main.MainActivity"
+    android:id="@+id/constraintLayout"
+    >
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/activity_user_list"
-        android:name="com.example.dummybase.ui.user.UserListFragment"
+        android:name="com.example.dummybase.ui.seances.SeancesListFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/seances_list_fragment"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -35,6 +35,7 @@ android {
         applicationId "com.example.dummybase"
         minSdkVersion versions.minSdk
         targetSdkVersion versions.compileSdk
+
         versionCode Integer.valueOf(secretProperties['VERSION_CODE'] ?: versions.versionCode)
         versionName(/*secretProperties['VERSION_NAME'] ?: */versions.versionName)
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -96,6 +97,10 @@ android {
 }
 
 dependencies {
+
+    // Background icons and color on swiper cards
+    implementation "com.github.xabaras:RecyclerViewSwipeDecorator:1.3"
+
     // Android supports
     implementation "com.google.android.material:material:$versions.materialVersion"
     implementation "androidx.constraintlayout:constraintlayout:$versions.constraintVersion"

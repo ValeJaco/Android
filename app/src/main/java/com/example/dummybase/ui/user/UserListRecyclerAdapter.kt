@@ -3,14 +3,19 @@ package com.example.dummybase.ui.user
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dummybase.R
 import com.example.dummybase.data.model.User
 import com.example.dummybase.databinding.UserFragmentBinding
 import dagger.hilt.android.scopes.FragmentScoped
+import androidx.recyclerview.widget.RecyclerView.ViewHolder
+
+
+
 
 @FragmentScoped
-class UserListRecyclerAdapter() :
+class UserListRecyclerAdapter(private val viewModel: UserListViewModel) :
     RecyclerView.Adapter<UserListRecyclerAdapter.UserListHolder>() {
 
     var items: List<User> = mutableListOf()
@@ -33,7 +38,7 @@ class UserListRecyclerAdapter() :
 
     override fun onBindViewHolder(holder: UserListRecyclerAdapter.UserListHolder, position: Int) {
         val item = items[position]
-        holder.bind(item)
+        holder.bind(item,viewModel)
     }
 
     fun setUserList(userList: List<User>) {
@@ -46,9 +51,13 @@ class UserListRecyclerAdapter() :
     class UserListHolder(val binding: UserFragmentBinding ) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: User ) {
+        fun bind( item: User, viewModel: UserListViewModel ) {
             binding.user = item
+            binding.vm = viewModel
+
         }
     }
+
+
 
 }

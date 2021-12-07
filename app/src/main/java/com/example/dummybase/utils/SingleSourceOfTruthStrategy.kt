@@ -15,14 +15,14 @@ import kotlinx.coroutines.Dispatchers
  * [ApiResult.Status.LOADING]
  */
 fun <T, A> resultLiveData(
-    databaseQuery: (() -> LiveData<T>)? = null,
+    databaseQuery: (() -> LiveData<T>),
     networkCall: (suspend () -> ApiResult<A>)? = null,
     saveCallResult: (suspend (A) -> Unit)? = null
 ): LiveData<ApiResult<T>> =
     liveData(Dispatchers.IO) {
         emit(ApiResult.loading())
-        val source = databaseQuery?.invoke()?.map { ApiResult.success(it) }
-        source?.let { emitSource(it) }
+        val source = databaseQuery.invoke().map { ApiResult.success(it) }
+        emitSource(source)
         if (networkCall != null) {
             val responseStatus = networkCall.invoke()
             if (responseStatus.status == ApiResult.Status.SUCCESS && saveCallResult != null) {
@@ -33,7 +33,7 @@ fun <T, A> resultLiveData(
                 }
             } else if (responseStatus.status == ApiResult.Status.ERROR) {
                 emit(ApiResult.error(responseStatus.message!!))
-                source?.let { emitSource(it) }
+                emitSource(source)
             }
         }
     }
